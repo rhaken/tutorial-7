@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0up3t3btcepv"]
+
+[ext_resource type="ArrayMesh" uid="uid://bbgw4onornky2" path="res://assets/key.obj" id="1_0c2ru"]
+[ext_resource type="Script" path="res://scenes/Kunci.gd" id="2_hdrgx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g61bd"]
+albedo_color = Color(0.805979, 0.497778, 0.21548, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbkej"]
+size = Vector3(4.07416, 24.7419, 11.1162)
+
+[node name="ObjKunci" type="Node3D"]
+
+[node name="Key" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.192055, 0, 0, 0, 0.192055, 0, 0, 0, 0.192055, 0.758667, 0, 1.57288)
+material_override = SubResource("StandardMaterial3D_g61bd")
+mesh = ExtResource("1_0c2ru")
+
+[node name="KunciKuning" type="StaticBody3D" parent="Key" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(5.20684, 0, 0, 0, 5.20684, 0, 0, 0, 5.20684, 0, 0, 0)
+script = ExtResource("2_hdrgx")
+mesh = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key/KunciKuning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120026, 0.52536, 0.258301)
+shape = SubResource("BoxShape3D_rbkej")

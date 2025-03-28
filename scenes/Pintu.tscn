@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5wbrcbwf1qyn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui00t"]
+albedo_color = Color(0.807843, 0.498039, 0.215686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4bso"]
+albedo_color = Color(0.022861, 0.00797322, 0.00122844, 1)
+
+[node name="Pintu" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.536072, -0.421814)
+size = Vector3(1, 2.07214, 0.156372)
+material = SubResource("StandardMaterial3D_ui00t")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.208133, 0, 0, 0, 0.208133, 0, 0, 0, 0.208133, 0.371461, 0.650298, -0.334623)
+material = SubResource("StandardMaterial3D_d4bso")

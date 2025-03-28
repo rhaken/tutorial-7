@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ykpymw0vuoqt"]
+
+[ext_resource type="ArrayMesh" uid="uid://bbgw4onornky2" path="res://assets/key.obj" id="1_thyw2"]
+[ext_resource type="Script" path="res://scenes/Kunci.gd" id="2_t6se2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpmcm"]
+albedo_color = Color(0.603922, 0.0588235, 0.215686, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4tub"]
+size = Vector3(4.07416, 24.7419, 11.1162)
+
+[node name="ObjKunciMerah" type="Node3D"]
+
+[node name="Key" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.192055, 0, 0, 0, 0.192055, 0, 0, 0, 0.192055, 0.758667, 0, 1.57288)
+material_override = SubResource("StandardMaterial3D_hpmcm")
+mesh = ExtResource("1_thyw2")
+
+[node name="KunciMerah" type="StaticBody3D" parent="Key" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(5.20684, 0, 0, 0, 5.20684, 0, 0, 0, 5.20684, 0, 0, 0)
+script = ExtResource("2_t6se2")
+mesh = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key/KunciMerah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120026, 0.52536, 0.258301)
+shape = SubResource("BoxShape3D_h4tub")
